@@ -33,6 +33,7 @@ public class SecurityConfig {
                                                 .permitAll()
                                                 .requestMatchers(
                                                                 // "/**",
+                                                                "/error",
                                                                 "/api/auth/**",
                                                                 "/api/cep/search/**",
                                                                 "/v2/api-docs",

@@ -96,15 +96,23 @@ const TaskDetailsPage: React.FC = () => {
         priority: task.priority,
         status: newStatus,
       };
-      await api.put(`/tasks/${task.id}`, taskPayload);
+      await api.put(`${taskApiUrl}/${task.id}`, taskPayload);
       setTasks((prevTasks) =>
         prevTasks.map((t) =>
           t.id === task.id ? { ...t, status: newStatus } : t
         )
       );
     } catch (error) {
-      console.error("Erro ao atualizar status da tarefa:", error);
-      alert("Erro ao concluir a tarefa. Tente novamente.");
+      if (isAxiosError(error)) {
+        const message =
+          error.response?.data?.message ||
+          JSON.stringify(error.response?.data) ||
+          "Erro desconhecido";
+        alert(`Erro ao salvar: ${message}`);
+      } else {
+        console.error("Erro genérico:", error);
+        alert("Erro inesperado ao conectar com o servidor.");
+      }
     }
   };
 
