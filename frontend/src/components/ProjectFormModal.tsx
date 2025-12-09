@@ -146,9 +146,9 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
               required
               disabled={!isEditing}
             >
-              {ProjectStatusOptions.map((status) => (
-                <option key={status} value={status}>
-                  {status.replace("_", " ")}
+              {ProjectStatusOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
                 </option>
               ))}
             </select>

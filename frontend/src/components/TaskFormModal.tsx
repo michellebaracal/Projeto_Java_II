@@ -113,8 +113,8 @@ const TaskFormModal: React.FC<TaskFormModalProps> = ({
               required
             >
               {TaskPriorityOptions.map((priority) => (
-                <option key={priority} value={priority}>
-                  {priority}
+                <option key={priority.value} value={priority.value}>
+                  {priority.label}
                 </option>
               ))}
             </select>
@@ -136,9 +136,9 @@ const TaskFormModal: React.FC<TaskFormModalProps> = ({
               className="shadow border rounded w-full py-2 px-3"
               required
             >
-              {TaskStatusOptions.map((status) => (
-                <option key={status} value={status}>
-                  {status.replace("_", " ")}
+              {TaskStatusOptions.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
                 </option>
               ))}
             </select>

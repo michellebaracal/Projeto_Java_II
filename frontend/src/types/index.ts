@@ -46,14 +46,6 @@ export interface ProjectRequestDTO {
   numero?: string;
 }
 
-export const ProjectStatusOptions = [
-  "TO_DO",
-  "IN_PROGRESS",
-  "ON_HOLD",
-  "COMPLETED",
-  "CANCELED",
-];
-
 export interface AxiosErrorResponse {
   response?: {
     status?: number;
@@ -81,12 +73,23 @@ export interface TaskRequestDTO {
   status: ITask["status"];
 }
 
-export const TaskPriorityOptions = ["URGENT", "HIGH", "MEDIUM", "LOW"];
+export const TaskPriorityOptions = [
+  { value: "URGENT", label: "Urgente" },
+  { value: "HIGH", label: "Alta" },
+  { value: "MEDIUM", label: "Média" },
+  { value: "LOW", label: "Baixa" },
+];
 export const TaskStatusOptions = [
-  "TO_DO",
-  "IN_PROGRESS",
-  "BLOCKED",
-  "DONE",
-  "CANCELED",
-  "ON_HOLD",
+  { value: "TO_DO", label: "A Fazer" },
+  { value: "IN_PROGRESS", label: "Em Progresso" },
+  { value: "BLOCKED", label: "Bloqueada" },
+  { value: "DONE", label: "Concluída" },
+  { value: "CANCELED", label: "Cancelada" },
+];
+export const ProjectStatusOptions = [
+  { value: "TO_DO", label: "A Fazer" },
+  { value: "IN_PROGRESS", label: "Em Progresso" },
+  { value: "ON_HOLD", label: "Em Espera" },
+  { value: "COMPLETED", label: "Concluído" },
+  { value: "CANCELED", label: "Cancelado" },
 ];
